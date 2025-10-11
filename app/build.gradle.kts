@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
 }
 
 android {
@@ -49,6 +50,10 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // La siguiente línea ha sido eliminada para resolver el conflicto de versiones de Room
+    // implementation(libs.androidx.room.common.jvm)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -61,4 +66,9 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.9.4")
     //Coil compose
     implementation("io.coil-kt:coil-compose:2.7.0")
+
+    //Room database - (Versiones unificadas)
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
 }
