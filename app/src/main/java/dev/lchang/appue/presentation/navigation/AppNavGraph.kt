@@ -18,7 +18,7 @@ fun AppNavGraph(){
     val navController = rememberNavController()
 
     NavHost(navController = navController,
-        startDestination = "home"){
+        startDestination = "login"){
 
         composable("register") { RegisterScreen(navController) }
         composable ("login") { LoginScreen(navController) }
